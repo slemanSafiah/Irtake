@@ -1,0 +1,36 @@
+:root {
+    --lightBlue: #b6666f;
+    --mainWhite: #f3f3f3;
+    --mainDark: #eeebeb;
+}
+
+.login {
+    background-color: #e4c3c1;
+}
+
+.icon {
+    color: var(--lightBlue);
+}
+
+.loginbtn {
+    font-size: 1.4rem;
+    background: transparent;
+    border: 0.05rem solid var(--mainWhite);
+    background: var(--lightBlue);
+    color: var(--mainWhite);
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0.2rem 0.5rem 0.2rem 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.loginbtn:focus {
+    outline: none;
+}
+
+.loginbtn:hover {
+    background: var(--mainWhite);
+    color: var(--lightBlue);
+}

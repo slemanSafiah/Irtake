@@ -1,0 +1,153 @@
+:root {
+    --lightBlue: #b6666f;
+    --mainWhite: #f3f3f3;
+    --mainDark: #eeebeb;
+}
+
+body {
+    font-family: "El Messiri", sans-serif;
+}
+
+.text {
+    color: var(--lightBlue);
+}
+
+.active {
+    border-bottom: solid var(--lightBlue);
+}
+
+.header {
+    background-image: url(./img/background.jpg);
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: cover;
+}
+
+.header h1 {
+    color: white;
+    font-size: 60px;
+    padding-top: 100px !important;
+}
+
+.section1 p,
+h2,
+.section3 p,
+h3 {
+    color: #5b6670;
+}
+
+.section1 img {
+    width: 150px;
+    height: 150px;
+}
+
+.section3 img {
+    width: 100px;
+    height: 100px;
+}
+
+.section1 h1 {
+    color: var(--lightBlue);
+}
+
+.section2 h1 {
+    font-size: 48px;
+}
+
+.section2 p {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.section2 {
+    background-color: #e4c2c1;
+}
+
+.color {
+    color: #e4c2c1;
+}
+
+.footer {
+    background-color: #3d3d3d;
+    color: aliceblue;
+    bottom: 0;
+    margin-top: 30px;
+}
+
+.footer i,
+.icon {
+    color: var(--lightBlue);
+}
+
+.login {
+    background-color: #e4c3c1;
+}
+
+.loginbtn {
+    font-size: 1.4rem;
+    background: transparent;
+    border: 0.05rem solid var(--mainWhite);
+    background: var(--lightBlue);
+    color: var(--mainWhite);
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0.2rem 0.5rem 0.2rem 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.loginbtn:focus {
+    outline: none;
+}
+
+.loginbtn:hover {
+    background: var(--mainWhite);
+    color: var(--lightBlue);
+}
+
+.background {
+    background-color: #e4c3c1;
+}
+
+.contact {
+    background-color: #e4c2c1;
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        background-image: url(./img/headeMobile.jpg);
+    }
+    .header h1 {
+        font-size: 30px;
+    }
+    .irtsec {
+        background-image: url(./img/section1.png);
+    }
+    .section2 p {
+        font-size: 20px;
+    }
+    .title {
+        font-size: 25px;
+    }
+    .section4 {
+        background-image: url(./img/hum.jpg);
+        height: 600px;
+    }
+    .imgcourse {
+        width: "250px" !important;
+        height: "250px" !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .section2 {
+        background-image: url(./img/student.jpg);
+        background-repeat: no-repeat;
+    }
+    .nav1 {
+        margin-left: 600px;
+    }
+}
