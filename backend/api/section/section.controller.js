@@ -12,9 +12,7 @@ const {
 module.exports = {
     getSections: (req, res) => {
         const body = req.body;
-        body.book = body.course_name;
-        body.lesson = body.lesson_name;
-        body.module = body.module_name;
+        body.book = body.course;
         getSections(body, (err, results) => {
             if (err) {
                 console.log(err);
@@ -23,7 +21,7 @@ module.exports = {
                     message: 'database connection error'
                 });
             }
-            console.log(body);
+            console.log(results);
             if (results.length > 0) {
                 body.module_name = results[0].module;
                 body.lesson_name = body.lesson;

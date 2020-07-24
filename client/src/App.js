@@ -8,6 +8,7 @@ import Default from "./components/Layout/Default";
 import Home from "./components/Home";
 import Loading from "./components/Layout/Loading";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 import Logininst from "./components/Logininst";
 import Contactus from "./components/Contactus";
 import CourseList from "./components/CourseList";
@@ -46,105 +47,106 @@ class App extends Component {
         {this.state.loading ? (
           <Loading />
         ) : (
-            <React.Fragment>
-              <Navbar />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/login" component={Login} />
-                <Route path="/logininst" component={Logininst} />
-                <Route path="/contactus" component={Contactus} />
-                <Route path="/courselist" component={CourseList} />
-                <Route
-                  path="/course/:name"
-                  component={Course}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/lesson/:classname&:course&:module&:lesson"
-                  component={Lesson}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/institution"
-                  component={Institution}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/modquiz/:module_name&:course_name"
-                  component={ModuleQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/lessquiz/:lesson_name&:module_name&:course_name"
-                  component={LessonQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/couquiz/:course_name"
-                  component={CourseQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/choicequiz"
-                  component={ChoiceQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/inputquiz"
-                  component={InputQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/orderquiz"
-                  component={OrderQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/imagequiz"
-                  component={ImageQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/password"
-                  component={Password}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/addlessquiz"
-                  component={AddLessQuiz}
-                  auth={localStorage.getItem("token")}
-                />{" "}
-                <Route
-                  path="/addcouquiz"
-                  component={AddCouQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/addmodquiz"
-                  component={AddModQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/addsecquiz"
-                  component={AddSecQuiz}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/student"
-                  component={Student}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route
-                  path="/profile"
-                  component={Profile}
-                  auth={localStorage.getItem("token")}
-                />
-                <Route component={Default} />
-              </Switch>
-              <Footer />
-              <ScrollUpButton />
-            </React.Fragment>
-          )}
+          <React.Fragment>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/logininst" component={Logininst} />
+              <Route path="/contactus" component={Contactus} />
+              <Route path="/courselist" component={CourseList} />
+              <PrivateRoute
+                path="/course/:name"
+                component={Course}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/lesson/:classname&:course&:module&:lesson"
+                component={Lesson}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/institution"
+                component={Institution}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/modquiz/:module_name&:course_name"
+                component={ModuleQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/lessquiz/:lesson_name&:module_name&:course_name"
+                component={LessonQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/couquiz/:course_name"
+                component={CourseQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/choicequiz"
+                component={ChoiceQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/inputquiz"
+                component={InputQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/orderquiz"
+                component={OrderQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/imagequiz"
+                component={ImageQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/password"
+                component={Password}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/addlessquiz"
+                component={AddLessQuiz}
+                auth={localStorage.getItem("token")}
+              />{" "}
+              <PrivateRoute
+                path="/addcouquiz"
+                component={AddCouQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/addmodquiz"
+                component={AddModQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/addsecquiz"
+                component={AddSecQuiz}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/student"
+                component={Student}
+                auth={localStorage.getItem("token")}
+              />
+              <PrivateRoute
+                path="/profile"
+                component={Profile}
+                auth={localStorage.getItem("token")}
+              />
+              <Route component={Default} />
+            </Switch>
+            <Footer />
+            <ScrollUpButton />
+          </React.Fragment>
+        )}
       </div>
     );
   }
@@ -157,8 +159,8 @@ function PrivateRoute({ auth, component: Component, ...rest }) {
         auth ? (
           <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: "/login" }} />
-          )
+          <Redirect to={{ pathname: "/login" }} />
+        )
       }
     />
   );

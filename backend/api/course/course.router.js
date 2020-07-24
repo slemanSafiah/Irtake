@@ -43,7 +43,7 @@ router.post(
   add_course
 );
 router.get("/get_courses", getCourses);
-router.post("/get_course", checkToken, getCourseByName);
+router.post("/get_course", getCourseByName);
 router.post("/get_course_details", checkToken, get_course_details);
 router.post("/delete_course", checkToken, deleteCourse);
 router.put("/update_course", checkToken, update_course);

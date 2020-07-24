@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.post("/add_quiz", checkToken, add_quiz);
 router.get("/get_quizes", checkToken, getquizes);
-router.post("/get_quiz_by_module", get_quiz_by_module);
+router.post("/get_quiz_by_module", checkToken, get_quiz_by_module);
 router.post("/delete_quiz", checkToken, deleteQuiz);
 //////////////////////////////////////////////////////////////////
 router.post("/add_exam", checkToken, add_exam);

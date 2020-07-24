@@ -3,13 +3,7 @@ import axios from "axios";
 export const CourseContext = React.createContext();
 
 export function CourseProvider(Props) {
-  const [isLogin, setIsLogin] = useState(true);
   const [courses, setCourses] = useState([]);
-
-  const toggleIsLogin = () => {
-    setIsLogin(!isLogin);
-    console.log(isLogin);
-  };
 
   useEffect(async () => {
     const result = await axios
@@ -29,9 +23,7 @@ export function CourseProvider(Props) {
   return (
     <CourseContext.Provider
       value={{
-        isLogin,
         courses,
-        toggleIsLogin,
       }}
     >
       {Props.children}

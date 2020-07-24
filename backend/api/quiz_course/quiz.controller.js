@@ -106,6 +106,8 @@ module.exports = {
                     message: 'database connection error'
                 });
             }
+            console.log(body);
+
             if (results.length > 0) {
                 body.course_id = results[0].id;
                 get_exam_id(body, (err, results1) => {

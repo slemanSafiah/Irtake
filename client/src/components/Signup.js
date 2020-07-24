@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import { CourseContext } from "./../CourseContext";
 import { Link } from "react-router-dom";
-function LoginForm() {
+function Signup() {
   let history = useHistory();
 
   const authContext = useContext(AuthContext);
@@ -18,6 +18,7 @@ function LoginForm() {
     initialValues: {
       number: "",
       password: "",
+      name: "",
     },
     validationSchema: Yup.object({
       number: Yup.string()
@@ -27,27 +28,30 @@ function LoginForm() {
       password: Yup.string()
         .required("Required")
         .min(8, "كلمة السر لا يجب أن تقل عن 8 محارف"),
+      name: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
       const data = {
         mobil_number: values.number,
         password: values.password,
+        name: values.name,
       };
 
       axios
-        .post("http://localhost:5000/api/users/login", data)
+        .post("http://localhost:5000/api/users/add_user", data)
         .then((res) => {
-          console.log("uuuuu", res.data);
+          console.log("uppppu", res.data);
           if (res.data.success === 1) {
             const token = res.data.token;
             const inst = res.data.inst;
-            const name = res.data.name;
+            const name = values.name;
             localStorage.setItem("token", token);
-            localStorage.setItem("number", values.number);
             localStorage.setItem("inst", inst);
+            localStorage.setItem("number", values.number);
             localStorage.setItem("state", false);
-            localStorage.setItem("name", name);
             authContext.setAuth(token);
+            localStorage.setItem("name", name);
+
             history.push("/");
           }
         })
@@ -67,7 +71,22 @@ function LoginForm() {
               <i className="fas fa-user-graduate mr-3 fa-2x icon"></i>
               <i className="fas fa-lock fa-2x icon"></i>
             </span>
-            <h1 className="mt-3"> تسجيل دخول</h1>
+            <h1 className="mt-3"> إنشاء حساب</h1>
+
+            <div>
+              <input
+                type="string"
+                name="name"
+                placeholder="أدخل اسمك"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+                className="mb-5 shadow-sm mt-3 text-right bg-light form-control form-control-lg"
+              />
+              {formik.touched.name && formik.errors.name ? (
+                <h6 className="text-danger">{formik.errors.name}</h6>
+              ) : null}
+            </div>
 
             <div>
               <input
@@ -103,10 +122,10 @@ function LoginForm() {
               <input
                 type="submit"
                 disabled={!formik.isValid}
-                value="تسجيل دخول"
+                value="إنشاء حساب"
                 className=" mr-2 loginbtn"
               />
-              <Link to="/signup">إنشاء حساب</Link>
+              <Link to="/login">تسجيل دخول</Link>
             </div>
           </form>
         </div>
@@ -118,4 +137,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Signup;
