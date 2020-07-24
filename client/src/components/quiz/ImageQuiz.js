@@ -41,7 +41,7 @@ export default function ImageQuiz(props) {
   };
   return (
     <form onSubmit={onSubmit} className="text-right mt-3 mb-3">
-      <h1>السؤال</h1>
+      <h3 classNam="text-right">السؤال</h3>
 
       <p className="text-right">{ReactHtmlParser(question)}</p>
       <div className="form-group">

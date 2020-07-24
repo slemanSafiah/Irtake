@@ -10,7 +10,7 @@ import { AuthContext } from "./../../AuthContext";
 import Countdown from "react-countdown";
 import Count from "./Count";
 export default function ModuleQuiz() {
-  const { module_name, course_name } = useParams();
+  const { module_name, course_name, quiz, classname } = useParams();
   const [res, setRes] = useState(0);
   const [last, setLast] = useState(1);
   const [modules, setmodules] = useState([]);
@@ -26,8 +26,9 @@ export default function ModuleQuiz() {
   const data = {
     module_name: f2(module_name),
     course_name: f2(course_name),
+    quiz: f2(quiz),
+    classname: f2(classname),
     inst,
-    hard,
   };
 
   const increment = () => {
@@ -45,6 +46,7 @@ export default function ModuleQuiz() {
       },
     })
       .then((res) => {
+        console.log(res);
         console.log(data.hard, "fdfdg", fin);
         res.data.data.map((elem) =>
           setmodules((oldArray) => [...oldArray, elem])
@@ -70,7 +72,9 @@ export default function ModuleQuiz() {
 
   return (
     <div className="text-right container">
-      <h1 className=" text-right">: اختبار وحدة{module_name}</h1>
+      <h1 className=" text-right">: اختبار وحدة {module_name}</h1>
+      <h2 className=" text-right">: {quiz}</h2>
+
       <h5>
         {hard == "4" && !fin ? (
           <Countdown date={Date.now() + 1200000} renderer={renderer} />

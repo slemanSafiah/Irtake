@@ -10,7 +10,13 @@ import MatchQuiz from "./../genquiz/MatchQuiz";
 import { AuthContext } from "./../../AuthContext";
 
 export default function LessonQuiz() {
-  const { lesson_name, module_name, course_name } = useParams();
+  const {
+    lesson_name,
+    module_name,
+    course_name,
+    quiz,
+    classname,
+  } = useParams();
   const [res, setRes] = useState(0);
   const [last, setLast] = useState(1);
   const [modules, setmodules] = useState([]);
@@ -28,6 +34,8 @@ export default function LessonQuiz() {
     module_name: f2(module_name),
     lesson_name: f2(lesson_name),
     course_name: f2(course_name),
+    quiz: f2(quiz),
+    classname: f2(classname),
     inst,
     mark,
     std_num,
@@ -67,7 +75,9 @@ export default function LessonQuiz() {
   };
   return (
     <div className="text-right container">
-      <h1 className=" text-right">: اختبار درس {lesson_name}</h1>
+      <h1 className=" text-right mb-2">: اختبار درس {lesson_name}</h1>
+      <h2 className=" text-right mb-4">: {quiz}</h2>
+
       {modules.map((quiz) => {
         if (quiz.type == 3)
           return (

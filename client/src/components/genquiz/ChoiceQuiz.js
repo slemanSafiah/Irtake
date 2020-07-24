@@ -56,17 +56,17 @@ export default function ChoiceQuiz(props) {
       <p className="text-right">{ReactHtmlParser(question)}</p>
       {arr.map((ele) => {
         return (
-          <div class="form-check rounded shadow-sm">
-            <label class="form-check-label text-right" for="exampleRadios1">
+          <div class="rounded shadow mb-3">
+            <h4
+              class={
+                choice === ele
+                  ? "text-right pr-2 text-primary"
+                  : "text-right pr-2"
+              }
+              onClick={() => setChoice(ele)}
+            >
               {ele}
-            </label>
-            <input
-              type="radio"
-              name="optradio"
-              value={ele}
-              className="form-check-input ml-3"
-              onChange={(event) => setChoice(event.target.value)}
-            />
+            </h4>
           </div>
         );
       })}

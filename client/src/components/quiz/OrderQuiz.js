@@ -76,7 +76,7 @@ class OrderQuiz extends Component {
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <div className="item rounded shadow-sm">
+            <div className="item rounded shadow mb-3">
               <span className="text-right">{item.text}</span>{" "}
               <span className="text-right">-{index + 1}</span>
             </div>

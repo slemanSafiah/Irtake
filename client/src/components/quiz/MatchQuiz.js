@@ -42,9 +42,9 @@ export default function MatchQuiz(props) {
 
       <div className="row text-right">
         <div className="col-md-4"></div>
-        <div className="col-md-4 rounded shadow-sm">{ans4} -1ج</div>
+        <div className="col-md-4 rounded shadow mb-4">{ans4} -1ج</div>
         <div className="col-md-4">
-          <div className="row rounded shadow-sm">
+          <div className="row rounded shadow mb-4">
             <div className="col-md-11 ">{hintAns1} -1س</div>
             <div className="col-md-1">
               <select id="lang" onChange={(e) => setFir(e.target.value)}>
@@ -59,9 +59,9 @@ export default function MatchQuiz(props) {
       </div>
       <div className="row text-right">
         <div className="col-md-4"></div>
-        <div className="col-md-4 rounded shadow-sm">{ans3} -2ج</div>
+        <div className="col-md-4 rounded shadow mb-4">{ans3} -2ج</div>
         <div className="col-md-4">
-          <div className="row rounded shadow-sm">
+          <div className="row rounded shadow mb-4">
             <div className="col-md-11">{hintAns2} -2س</div>
             <div className="col-md-1">
               <select id="lang" onChange={(e) => setSec(e.target.value)}>
@@ -76,10 +76,10 @@ export default function MatchQuiz(props) {
       </div>
       <div className="row text-right">
         <div className="col-md-4"></div>
-        <div className="col-md-4 rounded shadow-sm">{ans2}-3ج</div>
+        <div className="col-md-4 rounded shadow mb-4">{ans2}-3ج</div>
 
         <div className="col-md-4">
-          <div className="row rounded shadow-sm">
+          <div className="row rounded shadow mb-4">
             <div className="col-md-11">{hintAns3} -3س</div>
             <div className="col-md-1">
               <select id="lang" onChange={(e) => setThir(e.target.value)}>
@@ -94,7 +94,7 @@ export default function MatchQuiz(props) {
       </div>
       <div className="row text-right">
         <div className="col-md-4"></div>
-        <div className="col-md-4 rounded shadow-sm">{ans1} -4ج</div>
+        <div className="col-md-4 rounded shadow mb-4">{ans1} -4ج</div>
 
         <div className="col-md-4"></div>
       </div>

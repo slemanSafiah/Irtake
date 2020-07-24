@@ -55,24 +55,17 @@ export default function Lesson(props) {
     <div className="container">
       <h1 className="text-right text-secondary">{f2(lesson)}</h1>
 
-      {mapp === sections.length + 3 ? (
-        <Redirect
-          to={{
-            pathname: `/lessquiz/${f1(lesson)}&${f1(module)}&${f1(course)}`,
-          }}
-        />
-      ) : (
-        sections
-          .filter((sec) => sec.sort === mapp)
-          .map((section) => (
-            <Section
-              section={section}
-              key={section.id}
-              statues={statues}
-              setMapp={setMapp}
-            />
-          ))
-      )}
+      {sections
+        .filter((sec) => sec.sort === mapp)
+        .map((section) => (
+          <Section
+            section={section}
+            key={section.id}
+            statues={statues}
+            setMapp={setMapp}
+            len={sections.length}
+          />
+        ))}
     </div>
   );
 }

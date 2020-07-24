@@ -56,82 +56,82 @@ class App extends Component {
               <Route path="/logininst" component={Logininst} />
               <Route path="/contactus" component={Contactus} />
               <Route path="/courselist" component={CourseList} />
-              <PrivateRoute
+              <Route
                 path="/course/:name"
                 component={Course}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/lesson/:classname&:course&:module&:lesson"
                 component={Lesson}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/institution"
                 component={Institution}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
-                path="/modquiz/:module_name&:course_name"
+              <Route
+                path="/modquiz/:module_name&:course_name&:quiz&:classname"
                 component={ModuleQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
-                path="/lessquiz/:lesson_name&:module_name&:course_name"
+              <Route
+                path="/lessquiz/:lesson_name&:module_name&:course_name&:quiz&:classname"
                 component={LessonQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
-                path="/couquiz/:course_name"
+              <Route
+                path="/couquiz/:course_name&:quiz&:classname"
                 component={CourseQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/choicequiz"
                 component={ChoiceQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/inputquiz"
                 component={InputQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/orderquiz"
                 component={OrderQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/imagequiz"
                 component={ImageQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/password"
                 component={Password}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/addlessquiz"
                 component={AddLessQuiz}
                 auth={localStorage.getItem("token")}
               />{" "}
-              <PrivateRoute
+              <Route
                 path="/addcouquiz"
                 component={AddCouQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/addmodquiz"
                 component={AddModQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/addsecquiz"
                 component={AddSecQuiz}
                 auth={localStorage.getItem("token")}
               />
-              <PrivateRoute
+              <Route
                 path="/student"
                 component={Student}
                 auth={localStorage.getItem("token")}

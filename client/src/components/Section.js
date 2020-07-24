@@ -34,20 +34,9 @@ export default function Section(props) {
       <div className="row mb-5">
         <div className="col-md-5"></div>
         <div className="col-md-7">
-          <h1 className="mt-5 mb-5 text">{title} </h1>
-          <h5 className="mt-3 mb-5 text-right">
-            <span>
-              {sort > 1 ? (
-                <button
-                  onClick={() => props.setMapp(sort - 1)}
-                  className="float-right"
-                  value="السابق"
-                ></button>
-              ) : (
-                ""
-              )}
-            </span>
-          </h5>
+          <h1 className="mt-5 mb-5 text">
+            {title} {sort}/{props.len}
+          </h1>
 
           {url ? <ReactPlayer controls url={url} /> : ""}
 
@@ -105,8 +94,19 @@ export default function Section(props) {
             disabled={quiz.length + 1 != last}
             onClick={() => props.setMapp(sort + 1)}
             className="float-right"
-            value="التالي"
-          ></button>
+          >
+            التالي
+          </button>
+          {sort > 1 ? (
+            <button
+              onClick={() => props.setMapp(sort - 1)}
+              className="float-left"
+            >
+              السابق
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

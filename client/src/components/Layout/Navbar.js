@@ -1,16 +1,13 @@
 import React, { useContext, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Redirect } from "react-router-dom";
 import { ButtonContainer } from "./Button";
 import { CourseContext } from "./../../CourseContext";
 import logo from "./../../img/logo.png";
 import { AuthContext } from "./../../AuthContext";
-import { useHistory } from "react-router-dom";
 
 export default function Navbar() {
   const authContext = useContext(AuthContext);
   const courseContext = useContext(CourseContext);
-
-  let history = useHistory();
 
   function logout() {
     localStorage.removeItem("token");
@@ -19,9 +16,14 @@ export default function Navbar() {
     localStorage.removeItem("inst");
     localStorage.removeItem("state");
     localStorage.removeItem("name");
-
     authContext.setAuth("");
-    history.push("/login");
+    return (
+      <Redirect
+        to={{
+          pathname: `/login`,
+        }}
+      />
+    );
   }
   useEffect(() => {
     console.log(courseContext.isst, authContext.auth);

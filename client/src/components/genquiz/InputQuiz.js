@@ -33,15 +33,6 @@ export default function InputQuiz(props) {
         <h3 className="text-right">:السؤال</h3>
         <h3>{ReactHtmlParser(question)}</h3>
         <div className="row">
-          <div className="col-md-10">
-            {" "}
-            <input
-              type="text"
-              className="form-control w-50 text-right float-right"
-              placeholder=" أدخل إجابتك"
-              onChange={(event) => setChoice(event.target.value)}
-            />
-          </div>
           <div className="col-md-2">
             <p>{props.fin ? correct : ""}</p>
             {correct && props.fin ? (
@@ -53,6 +44,15 @@ export default function InputQuiz(props) {
             ) : (
               ""
             )}
+          </div>
+          <div className="col-md-10">
+            {" "}
+            <input
+              type="text"
+              className="form-control w-50 text-right float-right"
+              placeholder=" أدخل إجابتك"
+              onChange={(event) => setChoice(event.target.value)}
+            />
           </div>
         </div>
         <div className="row">
